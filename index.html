@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mend the Pattern | SDG 12</title>
+  <meta name="description" content="A generative textile with two ways to spend the thread a tear leaves behind.">
+  <link rel="stylesheet" href="studio.css">
+  <script defer src="p5.min.js"></script>
+  <script defer src="cloth.js"></script>
+  <script defer src="sound.js"></script>
+  <script defer src="sketch.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <a class="badge" href="#artwork">weave generator</a>
+      <nav aria-label="Project links">
+        <a class="badge" href="https://sdgs.un.org/goals/goal12" aria-label="UN SDG 12, Responsible Consumption and Production">SDG 12</a>
+        <a class="badge" href="plan.html">work plan ↗</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="gallery" aria-labelledby="title">
+        <h1 id="title">mend the pattern<span>.</span></h1>
+        <figure class="swatch">
+          <div id="artwork">
+            <p id="artwork-placeholder">The textile sketch needs JavaScript and the bundled p5.js library.</p>
+          </div>
+          <p id="artwork-description" class="sr-only" aria-live="polite"></p>
+          <figcaption id="weave-style"></figcaption>
+        </figure>
+
+        <div class="repair-panel">
+          <div class="actions">
+            <button id="new-tear" type="button" disabled>New weave <span aria-hidden="true">↻</span></button>
+            <button id="save-weave" type="button" disabled>Save PNG <span aria-hidden="true">↓</span></button>
+          </div>
+          <fieldset id="strategy" disabled>
+            <legend>Stitch placement</legend>
+            <div class="strategy-options">
+              <input type="radio" name="repair" id="spread" value="spread" checked>
+              <label for="spread">Spread</label>
+              <input type="radio" name="repair" id="concentrate" value="concentrate">
+              <label for="concentrate">Concentrate</label>
+            </div>
+          </fieldset>
+          <div class="ledger">
+            <h3 class="eyebrow">Thread budget <span>model units</span></h3>
+            <div class="budget-bar" aria-hidden="true"><div id="used-bar"></div></div>
+            <dl>
+              <div><dt>Recovered</dt><dd id="recovered">–</dd></div>
+              <div><dt>Used</dt><dd id="used">–</dd></div>
+              <div><dt>Left</dt><dd id="remaining">–</dd></div>
+            </dl>
+            <div class="seam">
+              <div><span>Seam reach</span><strong id="reach">–</strong></div>
+              <div id="seam-map" aria-hidden="true"></div>
+            </div>
+          </div>
+          <form id="seed-form">
+            <label for="seed">Weave seed</label>
+            <div>
+              <input id="seed" name="seed" type="text" inputmode="numeric" pattern="[0-9]{1,10}" maxlength="10" required disabled>
+              <button type="submit" id="apply-seed" disabled>Go</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="message" aria-labelledby="action-title">
+        <div class="quote">
+          <blockquote>“The economy is entirely dependent on finite materials.”</blockquote>
+          <a href="https://www.ellenmacarthurfoundation.org/the-circular-economy-at-sea/part-1">Ellen MacArthur ↗</a>
+        </div>
+        <div>
+          <h2 id="action-title">Use what you have.</h2>
+          <p>At sea, Ellen MacArthur learned to work with the supplies she had. Her observation connects to SDG 12, Responsible Consumption and Production, because repairing an object keeps materials in use and can prevent waste. In this textile, each repair spends the thread its tear leaves behind. <strong>Before you replace something this week, try one repair with a material you already have and show someone how you did it.</strong></p>
+        </div>
+      </section>
+
+      <section class="sound-strip" aria-labelledby="sound-title">
+        <div>
+          <h2 id="sound-title">Sound sketches</h2>
+          <p>Three motifs reuse one synthesized fiber. Try <em>Pull through</em> after switching repairs.</p>
+        </div>
+        <div class="sound-buttons">
+          <button type="button" data-sound="fray" disabled><span aria-hidden="true">▷</span> <span class="sound-name">Fray</span></button>
+          <button type="button" data-sound="pull" disabled><span aria-hidden="true">▷</span> <span class="sound-name">Pull through</span></button>
+          <button type="button" data-sound="hold" disabled><span aria-hidden="true">▷</span> <span class="sound-name">Hold</span></button>
+          <span class="sr-only" id="sound-status" role="status"></span>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a href="https://sdgs.un.org/goals/goal12">UN Target 12.5</a>
+      <a href="plan.html">Read the studio work plan <span aria-hidden="true">↗</span></a>
+    </footer>
+  </div>
+</body>
+</html>
